@@ -1,0 +1,1 @@
+{"uuid":"a4219140-cb88-4df1-bcfd-58de81540159","name":"FRAMEWORK_SELENIUM","children":["b8c980a2-fd1d-470d-a6fd-46184719500e"],"befores":[{"name":"beforeTest","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1628544932856,"stop":1628544932864}],"afters":[],"links":[],"start":1628544932809,"stop":1628544933127}
