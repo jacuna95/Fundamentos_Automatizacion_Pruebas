@@ -18,17 +18,18 @@ public class RegisterPage {
     private By TermsCheckBoxLocator = By.name("agree");
     private By ContinueButtonLocator = By.xpath("//*[@id='content']/form/div/div/input[2]");
 
-    public RegisterPage (WebDriver _driver){
+    public RegisterPage(WebDriver _driver) {
         this.driver = _driver;
     }
-    public void goTo(){
+
+    public void goTo() {
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.clickOnMyAccount();
         headerPage.clickOnRegisterButton();
 
     }
 
-    public void FillForm(String firstname, String lastname, String email,String telephone,String password){
+    public void FillForm(String firstname, String lastname, String email, String telephone, String password) {
         driver.findElement(NameLocator).sendKeys(firstname);
         driver.findElement(LastNameLocator).sendKeys(lastname);
         driver.findElement(EmailLocator).sendKeys(email);
@@ -40,6 +41,7 @@ public class RegisterPage {
 
     }
 
-    public String GetConfirmationMessage(){return driver.findElement(ConfirmRegisterMessageLocator).getText();
+    public String GetConfirmationMessage() {
+        return driver.findElement(ConfirmRegisterMessageLocator).getText();
     }
 }

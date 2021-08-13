@@ -13,17 +13,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class DemoAccount {
 
     @BeforeTest
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
     }
+
     @Ignore
     @Test
-    public void test_capabilities(){
+    public void test_capabilities() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1200,800");
         options.setAcceptInsecureCerts(true);
@@ -33,9 +32,9 @@ public class DemoAccount {
         driver.get("https://expired.badssl.com/");
         Assert.assertTrue(driver.findElement(By.id("content")).isDisplayed());
 
-      //driver.get("https://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
+        //driver.get("https://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
 
-     // driver.manage().window().maximize();
+        // driver.manage().window().maximize();
     }
 
     @Test
@@ -51,10 +50,9 @@ public class DemoAccount {
         boolean result = false;
         try {
             result = wait.until(
-                    ExpectedConditions.textToBe(By.className("progress-label"),"complete!"));
+                    ExpectedConditions.textToBe(By.className("progress-label"), "complete!"));
 
-        }
-        catch (WebDriverException exception){
+        } catch (WebDriverException exception) {
             System.out.println("No funcionó");
         }
     }

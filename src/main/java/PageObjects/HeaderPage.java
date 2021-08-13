@@ -12,19 +12,20 @@ public class HeaderPage {
     private By LoginButtonLocator = By.xpath("//div[@id='top-links']/ul/li[2]/ul/li[2]/a");
     private By registerButtonLocator = By.linkText("Register");
 
-    public HeaderPage(WebDriver _driver){
+    public HeaderPage(WebDriver _driver) {
         this.driver = _driver;
 
     }
-    public void clickOnMyAccount(){
+
+    public void clickOnMyAccount() {
         driver.findElement(myAccountLinkLocator).click();
     }
 
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() {
         driver.findElement(LoginButtonLocator).click();
     }
 
-    public void clickOnRegisterButton(){
+    public void clickOnRegisterButton() {
         driver.findElement(registerButtonLocator).click();
     }
 }

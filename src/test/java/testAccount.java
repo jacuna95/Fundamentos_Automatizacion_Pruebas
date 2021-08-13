@@ -1,11 +1,10 @@
-
 import PageObjects.HeaderPage;
 import PageObjects.LoginPage;
 import PageObjects.RegisterPage;
 import io.qameta.allure.Description;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -50,7 +49,7 @@ public class testAccount extends BaseClass {
         loginPage.goTo();
 
         // Datos
-        loginPage.login(username,password);
+        loginPage.login(username, password);
 
         WebElement alertMessage = driver.findElement(By.xpath("//*[@id='account-login']/div[1]"));
         Assert.assertEquals(expectedMessage.toLowerCase(), alertMessage.getText().toLowerCase().trim());
@@ -58,7 +57,7 @@ public class testAccount extends BaseClass {
     }
 
     @Test
-    public void Test_Create_New_Account(){
+    public void Test_Create_New_Account() {
         //SETUP VARIABLES Y DEMÁS
         String firstname = "Nacho";
         String lastname = "Acuña";
@@ -70,10 +69,10 @@ public class testAccount extends BaseClass {
 
         //RUN
         registerPage.goTo();
-        registerPage.FillForm(firstname,lastname,email,telephone,password);
+        registerPage.FillForm(firstname, lastname, email, telephone, password);
 
         //VALIDATION
-        Assert.assertEquals(registerPage.GetConfirmationMessage(),expectedMessage);
+        Assert.assertEquals(registerPage.GetConfirmationMessage(), expectedMessage);
 
     }
 
