@@ -14,14 +14,9 @@ public class BaseClass {
 
     protected WebDriver driver;
 
-    @BeforeTest //AfterTest es igual//
-    public void beforeTest(){
-       // System.out.println("*Esto corre una sola vez");
-    }
     @Parameters({"browser"})
     @BeforeMethod //AfterMethod//
     public void beforeMethod(@Optional("chrome") String browser){
-       // System.out.println("*Esto corre 2 veces");
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
 

@@ -7,13 +7,12 @@
             <class name="testAccount"/>
         </classes>
     </test>
-    <test name="login_Test - Firefox">
+    <test name="Search Tests - Firefox">
         <parameter name="browser" value="firefox"></parameter>
-        <parameter name="searchCriteria" value="Macbook"></parameter>
-        <parameter name="username" value="jose.acuna.sanchez@ucreativa.com"></parameter>
-        <parameter name="password" value="123ja"></parameter>
+        <parameter name="searchCriteria" value="iphone"></parameter>
+        <parameter name="expectedResults" value="1"></parameter>
         <classes>
-            <class name="testAccount"/>
+            <class name="TestSearch"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,7 @@
 
+import PageObjects.HeaderPage;
+import PageObjects.LoginPage;
+import PageObjects.RegisterPage;
 import io.qameta.allure.Description;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -11,20 +14,22 @@ public class testAccount extends BaseClass {
     @Description("Validate test login was successfull")
     @Test
     public void test_Login() {
-
+        HeaderPage headerPage = new HeaderPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         String username = "jose.acuna.sanchez@ucreativa.com";
         String password = "123ja";
 
         //login page
 
-        driver.findElement(By.xpath("//*[@id='top-links']/ul/li[2]/a/span[1]")).click();
-        driver.findElement(By.xpath("//div[@id='top-links']/ul/li[2]/ul/li[2]/a")).click();
+        headerPage.clickOnMyAccount();
+        headerPage.clickOnLoginButton();
 
         // Datos
 
-        driver.findElement(By.name("email")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
-        driver.findElement(By.xpath("//div[@id='content']/div/div[2]/div/form/input")).click();
+        loginPage.EnterEmail(username);
+        loginPage.EnterPassword(password);
+        loginPage.clickSubmitButton();
+
 
         WebElement logOutButtom = driver.findElement(By.xpath("//*[@id='column-right']/div/a[13]"));
         Assert.assertTrue(logOutButtom.isDisplayed());
@@ -36,23 +41,39 @@ public class testAccount extends BaseClass {
     @Test
     public void Test_Login_Unsuccessful() {
 
+        LoginPage loginPage = new LoginPage(driver);
         String username = "jacuna";
         String password = "12345";
         String expectedMessage = "warning: your account has exceeded allowed number of login attempts. please try again in 1 hour.";
 
         //login page
-
-        driver.findElement(By.xpath("//*[@id='top-links']/ul/li[2]/a/span[1]")).click();
-        driver.findElement(By.xpath("//div[@id='top-links']/ul/li[2]/ul/li[2]/a")).click();
+        loginPage.goTo();
 
         // Datos
-
-        driver.findElement(By.name("email")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
-        driver.findElement(By.xpath("//div[@id='content']/div/div[2]/div/form/input")).click();
+        loginPage.login(username,password);
 
         WebElement alertMessage = driver.findElement(By.xpath("//*[@id='account-login']/div[1]"));
         Assert.assertEquals(expectedMessage.toLowerCase(), alertMessage.getText().toLowerCase().trim());
+
+    }
+
+    @Test
+    public void Test_Create_New_Account(){
+        //SETUP VARIABLES Y DEMÁS
+        String firstname = "Nacho";
+        String lastname = "Acuña";
+        String email = "jacuna@sanchez.com";
+        String telephone = "12121212";
+        String password = "Clase6";
+        String expectedMessage = "Your Account Has Been Created!";
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        //RUN
+        registerPage.goTo();
+        registerPage.FillForm(firstname,lastname,email,telephone,password);
+
+        //VALIDATION
+        Assert.assertEquals(registerPage.GetConfirmationMessage(),expectedMessage);
 
     }
 
