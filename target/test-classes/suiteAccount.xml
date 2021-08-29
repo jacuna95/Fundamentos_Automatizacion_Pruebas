@@ -4,7 +4,7 @@
     <test name="login_Test- Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="testAccount"/>
+            <class name="selenium.testAccount"/>
         </classes>
     </test>
     <test name="Search Tests - Firefox">
@@ -12,7 +12,7 @@
         <parameter name="searchCriteria" value="iphone"></parameter>
         <parameter name="expectedResults" value="1"></parameter>
         <classes>
-            <class name="TestSearch"/>
+            <class name="selenium.TestSearch"/>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,15 @@
+{
+  "dataSet": [
+    {
+      "email" : "jose.acuna.sanchez@ucreativa.com",
+      "password" : "123ja",
+      "validAccount": true
+    },
+    {
+      "email" : "jacuna",
+      "password" : "12345",
+      "validAccount": false
+    }
+
+  ]
+}

@@ -4,13 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class SearchPage {
-
-    private WebDriver driver;
-
+public class SearchPage extends BasePage{
 
     public SearchPage(WebDriver _driver) {
-        this.driver = _driver;
+        super(_driver);
     }
 
     private By searchInputLocator = By.name("search");

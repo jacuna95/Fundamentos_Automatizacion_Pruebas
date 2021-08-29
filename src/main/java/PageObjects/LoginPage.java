@@ -3,15 +3,14 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-    private WebDriver driver;
+public class LoginPage extends BasePage{
 
     private By emailInputLocator = By.name("email");
     private By passwordInputLocator = By.name("password");
     private By submitButton = By.xpath("//div[@id='content']/div/div[2]/div/form/input");
 
     public LoginPage(WebDriver _driver) {
-        this.driver = _driver;
+        super (_driver);
 
     }
 

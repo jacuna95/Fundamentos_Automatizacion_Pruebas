@@ -1,0 +1,23 @@
+{
+  "dataSet": [
+    {
+      "nameProduct" : "macbook",
+      "priceDolars": "$602.00",
+      "pricePounds": "£454.10",
+      "priceEuro": "518.16€"
+    },
+
+    {
+      "nameProduct" : "iphone",
+      "priceDolars": "$123.20",
+      "pricePounds": "£92.93",
+      "priceEuro": "106.04€"
+    },
+    {
+      "nameProduct" : "Samsung Galaxy Tab 10.1",
+      "priceDolars": "$241.99",
+      "pricePounds": "£182.54",
+      "priceEuro": "208.29€"
+    }
+  ]
+}
